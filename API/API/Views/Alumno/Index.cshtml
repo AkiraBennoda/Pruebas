@@ -1,0 +1,36 @@
+﻿@Model List<Models.Alumnos>
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2 class="">
+    <a href="@Url.Action("NuevoAlumno","Alumno")" class="btn btn-primary right">Nuevo Alumno</a>
+    Lista de Alumnos</h2>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Matrícula</td>
+                <td>Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var alumno in Model)
+            {
+            <tr>
+                <td>@alumno.ID</td>
+                <td>@alumno.Nombre</td>
+                <td>@alumno.Apellido</td>
+                <td>@alumno.Matricula</td>
+                <td>
+                    <a href="@Url.Action("ActualizarAlumno","Alumno", new {id=alumno.ID })" class="btn btn-success right">Actualizar</a>
+                    <a href="@Url.Action("Eliminar","Alumno", new {id=alumno.ID })" class="btn btn-danger right">Eliminar</a>
+                    <a href="@Url.Action("DetalleAlumno","Alumno", new {id=alumno.ID })" class="btn btn-default right">Detalle</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

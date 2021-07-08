@@ -1,0 +1,33 @@
+﻿@model API.Models.Alumnos
+    @{
+        ViewBag.Title = "NuevoAlumno";
+    }
+
+    <h2>Nuevo Alumno</h2>
+    <hr />
+
+    <form method="post" action="@Url.Action("NuevoAlumno", "Alumno")">
+
+        <div class="form-group">
+            <label>Nombre</label>
+            @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Apellido</label>
+            @Html.TextBoxFor(x => x.Apellido, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Matriicula</label>
+            @Html.TextBoxFor(x => x.Matricula, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Enviar">
+            <a href="@Url.Action("Index", "Alumno")">Regresar</a>
+        </div>
+
+    </form>
+
+
+
